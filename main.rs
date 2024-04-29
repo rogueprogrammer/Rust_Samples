@@ -36,7 +36,24 @@ fn main() {
     *s_ref = "yo-yo";
     println!("new val of mutable variable s2 = {}", s2); // "yo-yo"
 
+    // STRUCTS
+    struct Person{
+        name: String,
+        age: u8,
+    }
+    let dev = Person { name:String::from("Dev"), age:34 };
+    println!("Dev's age: {}", dev.age);
 
+    impl Person{
+        fn new(name: String, age: u8) -> Person{
+            return Person { name, age }
+        }
+        fn get_name(&self) -> &String{
+            return &self.name
+        }
+    }
+    let kabir = Person::new(String::from("Kabir"), 1);
+    println!("Kabir's name: {}", kabir.get_name());
 
     println!("Hello, world!");
 }
